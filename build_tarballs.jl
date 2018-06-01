@@ -15,7 +15,6 @@ cd $WORKSPACE/srcdir/cmake-*/
 cmake -DCMAKE_INSTALL_PREFIX=$prefix
 make -j${nproc}
 make install
-
 """
 
 # These are the platforms we will build for by default, unless further
@@ -26,12 +25,11 @@ platforms = [
 
 # The products that we will ensure are always built
 products(prefix) = [
-    
+    ExecutableProduct(prefix, "cmake", :cmake),
 ]
 
 # Dependencies that must be installed before this package can be built
 dependencies = [
-    
 ]
 
 # Build the tarballs, and possibly a `build.jl` as well.
